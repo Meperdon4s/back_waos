@@ -27,11 +27,46 @@ export default {
       next(error);
     }
   },
+  postArticulos: async (req, res, next) => {
+    try {
+      const { titulo, autor, categoria, descripcion, calificacion } = req.body;
+
+      const guardarArticulos = new Models.Articulos({
+        titulo,
+        autor,
+        categoria,
+        descripcion,
+        calificacion
+        
+      });
+
+      const guardar = await guardarArticulos.save();
+      res.status(200).json(guardar);
+      
+    } catch (error) {
+      res.status(500).send({
+        message: "Error al enviar",
+      });
+      next(error);
+    }
+  },
   //EndPoint BuscarAll
   getDatos: async (req, res, next) => {
     try {
       
       const obtener= await Models.Datos.find();
+      res.status(200).json(obtener);
+    } catch (error) {
+      res.status(500).send({
+        message: "Error al obtener los datos",
+      });
+      next(error);
+    }
+  },
+  getArticulos: async (req, res, next) => {
+    try {
+      
+      const obtener= await Models.Articulos.find();
       res.status(200).json(obtener);
     } catch (error) {
       res.status(500).send({

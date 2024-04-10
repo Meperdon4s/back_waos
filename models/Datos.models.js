@@ -10,5 +10,7 @@ const datos=mongoose.Schema(
     }
 );
 
+
 const Datos=mongoose.model('datos',datos);
+
 export default Datos;

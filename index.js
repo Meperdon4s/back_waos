@@ -10,7 +10,7 @@ const app = express();
 
 //conexion a base de datos
 mongoose.Promise=global.Promise;
-const dbUrl='mongodb://127.0.0.1:27017/informacion';
+const dbUrl='mongodb+srv://rafaguzman:VthMC4E8f8IT33Nq@cluster0.gvqmluk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 mongoose.connect(dbUrl)
 .then(mongoose=>console.log('Conectado a la bd en el puerto 27017'));
 //Listening de puertos
